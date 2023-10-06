@@ -184,7 +184,7 @@ countdown(3);
 */
 
 ///////////////////////////////////// Solution 2
-
+/*
 const countdown = (count) => { 
     let timer = setInterval(function (){
         if (count >= 0) {
@@ -196,3 +196,4 @@ const countdown = (count) => {
     
 }
 countdown(5);
+*/
