@@ -78,7 +78,7 @@ forEach(colors, log);
 */
 
 
-
+/*
 // Exercise 5
 function step1(cb) {
   setTimeout(function() {
@@ -100,7 +100,7 @@ function step3(cb) {
     cb()
   }, 250);
 }
-
+*/
 
 /////////////////////////////////////// solution 1
 /*
@@ -153,9 +153,9 @@ Hints:
 
 
 
-/*
-BONUS
 
+//BONUS
+/*
 Write function named countdown that accepts as an arg the starting number of seconds and console.logs the count down to zero one second apart from each other.
 
 For example:
@@ -169,7 +169,8 @@ Count: 1
 Count: 0
 
 
-/////////////////////////////////////// My solution
+/////////////////////////////////////// Solution 1
+/*
 function countdown(arg) {
     console.log(`Count: ${arg}`);
     
@@ -181,3 +182,17 @@ function countdown(arg) {
     }
 countdown(3);
 */
+
+///////////////////////////////////// Solution 2
+
+const countdown = (count) => { 
+    let timer = setInterval(function (){
+        if (count >= 0) {
+            console.log(`Count: ${count}`)
+            count--;
+        } else clearInterval(timer);
+            
+    }, 1000)
+    
+}
+countdown(5);
