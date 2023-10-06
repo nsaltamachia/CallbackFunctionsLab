@@ -12,28 +12,26 @@ function writeDing() {
 
 
 
-/*
+
 // Exercise 2
 // Write the sorting callback as a named function declaration
-function sortArray(a, b) { }
-// Or
+/*
+// Solution 1
 function sortByLength(a, b) { }
 
 const words = ['short', 'medium', 'delicious', 'nice', 'lengthy'];
-function sortByLength(a, b) {
-    if (a.length < b.length) {
-        return -1;
-    } else if (a.length < b.length) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-// The sort method sorts "in place", that is, it modifies the array
-words.sort(sortByLength);
 
-// Check that logging words now outputs
-// ["nice", "short", "medium", "lengthy", "delicious"]
+function sortByLength(a, b) {
+    return a.length - b.length;
+}
+words.sort(sortByLength);
+console.log(words);
+*/
+/*
+// Solution 2
+const words = ['short', 'medium', 'delicious', 'nice', 'lengthy'];
+const checkLength = (a, b) => { return a.length - b.length };
+words.sort(checkLength);
 console.log(words);
 */
 
@@ -42,14 +40,11 @@ console.log(words);
 
 
 
-
-
 /*
 // Exercise 3
+
 const words = ['short', 'medium', 'delicious', 'nice', 'lengthy'];
-const longWords = words.filter(function (word) {
-    return word.length >= 7;
-});
+const longWords = words.filter(function (word) { return word.length >= 7});
 console.log(longWords)
 */
 
@@ -74,20 +69,16 @@ function log(elem, idx) {
     console.log(`Index: ${idx} / Element Value: ${elem}`)
 }
 
-function forEach(arr, cb) {
-    for (let i = 0; i < arr.length; i++) {
-        cb(arr[i], i);
+const forEach = (arr, cb) => {
+    for (i = 0; i < arr.length; i++) {
+        cb(arr[i], i)
     }
-}
+ }
 forEach(colors, log);
 */
 
 
 
-
-
-
-/*
 // Exercise 5
 function step1(cb) {
   setTimeout(function() {
@@ -110,7 +101,9 @@ function step3(cb) {
   }, 250);
 }
 
-/////////////////////////////////////// My solution
+
+/////////////////////////////////////// solution 1
+/*
 function logFin() {
     console.log("FINISHED")
 }
@@ -122,8 +115,19 @@ function callInOrder() {
     setTimeout(logFin, 754);
 }
 callInOrder();
-
 */
+/*
+////////////////////////////////////// Solution 2
+step1(function() {
+    step2(function() {
+        step3(function() {
+            console.log("FINISHED")
+        });
+    });
+});
+*/
+
+
 /*
 The above functions are working asynchronous functions - DO NOT
 change any of their code. They are what we call "black boxes"
